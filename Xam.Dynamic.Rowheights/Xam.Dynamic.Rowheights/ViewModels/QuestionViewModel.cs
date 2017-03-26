@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
 namespace Xam.Dynamic.Rowheights.ViewModels
@@ -8,20 +7,27 @@ namespace Xam.Dynamic.Rowheights.ViewModels
     {
 
         public QuestionViewModel()
+            : this(null)
         {
-            
         }
 
         public QuestionViewModel(string title)
         {
             Title = title;
+            Children = new ObservableCollection<AnswerViewModel> {new AnswerViewModel()};
         }
 
         public QuestionViewModel(string title, string fieldType, params AnswerViewModel[] answers)
         {
             Title = title;
             FieldType = fieldType;
+            
             Children = new ObservableCollection<AnswerViewModel>(answers);
+
+            if (answers.Length == 0)
+            {
+                Children.Add(new AnswerViewModel());
+            }
         }
 
         private string _fieldType;
