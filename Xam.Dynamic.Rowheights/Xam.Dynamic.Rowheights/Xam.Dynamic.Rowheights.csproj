@@ -71,6 +71,7 @@
     </Compile>
     <Compile Include="Controls\CheckboxGroup.cs" />
     <Compile Include="Controls\EditorX.cs" />
+    <Compile Include="Controls\ListViewX.cs" />
     <Compile Include="Converters\AnswerFieldTypeToCheckboxVariantConverter.cs" />
     <Compile Include="Converters\AnswerFieldTypeToKeyboardConverter.cs" />
     <Compile Include="Converters\AnswerFieldTypeToMultiselectEnabledConverter.cs" />

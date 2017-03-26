@@ -11,6 +11,16 @@ namespace Xam.Dynamic.Rowheights.Controls.Cells
             set { ContentView.Content = value; }
         }
 
+        protected override void OnBindingContextChanged()
+        {
+            this.ContextActions.Clear();
+            this.ContextActions.Add(new MenuItem() {IsDestructive = true, Text = "Clear"});
+
+            base.OnBindingContextChanged();
+
+            ForceUpdateSize();
+        }
+
         public QuestionViewCellBase()
         {
             InitializeComponent();

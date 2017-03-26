@@ -4,6 +4,7 @@
              xmlns:local="clr-namespace:Xam.Dynamic.Rowheights"
              xmlns:viewModels="clr-namespace:Xam.Dynamic.Rowheights.ViewModels;assembly=Xam.Dynamic.Rowheights"
              xmlns:cells="clr-namespace:Xam.Dynamic.Rowheights.Controls.Cells;assembly=Xam.Dynamic.Rowheights"
+             xmlns:controls="clr-namespace:Xam.Dynamic.Rowheights.Controls;assembly=Xam.Dynamic.Rowheights"
              x:Class="Xam.Dynamic.Rowheights.MainPage"
              Title="{Binding Title}">
     <ContentPage.Resources>
@@ -72,11 +73,18 @@
     <ContentPage.BindingContext>
         <viewModels:MainViewModel />
     </ContentPage.BindingContext>
+    <StackLayout x:Name="Layout">
+        
+        <controls:ListViewX x:Name="ListView"
+            HasUnevenRows="True"
+            ItemsSource="{Binding Items}"
+            ItemTemplate="{StaticResource ItemTemplateSelector}">
+            <ListView.FooterTemplate>
+                <DataTemplate>
+                    <Label></Label>
+                </DataTemplate>
+            </ListView.FooterTemplate>
+        </controls:ListViewX>
     
-    <ListView 
-        HasUnevenRows="True"
-        ItemsSource="{Binding Items}"
-        ItemTemplate="{StaticResource ItemTemplateSelector}"
-        />
-
+    </StackLayout>
 </ContentPage>
