@@ -1,23 +1,55 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<cells1:QuestionViewCellBase x:Class="Xam.Dynamic.Rowheights.Controls.Cells.QuestionCheckboxViewCell"
+<ViewCell x:Class="Xam.Dynamic.Rowheights.Controls.Cells.QuestionCheckboxViewCell"
                             xmlns="http://xamarin.com/schemas/2014/forms"
                             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                             xmlns:controls1="clr-namespace:Xam.Dynamic.Rowheights.Controls;assembly=Xam.Dynamic.Rowheights"
-                            xmlns:viewModels="clr-namespace:Xam.Dynamic.Rowheights.ViewModels;assembly=Xam.Dynamic.Rowheights"
-                            xmlns:cells1="clr-namespace:Xam.Dynamic.Rowheights.Controls.Cells;assembly=Xam.Dynamic.Rowheights"
-                            mc:Ignorable="d"> 
-    <controls1:CheckboxGroup x:Name="CheckboxGroup"
-                            Margin="16,8"
-                            ItemsSource="{Binding Children}">
+                            mc:Ignorable="d">
+
+  <Grid HorizontalOptions="FillAndExpand">
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="Auto" />
+      <ColumnDefinition Width="*" />
+      <ColumnDefinition Width="Auto" />
+    </Grid.ColumnDefinitions>
+    <BoxView WidthRequest="6"
+             VerticalOptions="FillAndExpand" />
+    <Grid Grid.Column="1"
+          HorizontalOptions="FillAndExpand"
+          Style="{DynamicResource ListItemRootLayoutStyle}">
+      <Grid.RowDefinitions>
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="*" />
+      </Grid.RowDefinitions>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*" />
+        <ColumnDefinition Width="Auto" />
+        <ColumnDefinition Width="Auto" />
+      </Grid.ColumnDefinitions>
+      <Label Style="{DynamicResource ListItemTextStyle}"
+             Text="{Binding Title}" />
+
+      <controls1:CheckboxGroup x:Name="CheckboxGroup"
+                               Grid.Row="1"
+                              Grid.Column="0"
+                              Grid.ColumnSpan="3"
+                               BackgroundColor="DimGray"
+                              Margin="16,8"
+                              ItemsSource="{Binding Children}">
         <controls1:CheckboxGroup.Variant>
-            <Binding Path="FieldType"
-                     Converter="{StaticResource AnswerFieldTypeToCheckboxVariantConverter}" />
+          <Binding Path="FieldType"
+                   Converter="{StaticResource AnswerFieldTypeToCheckboxVariantConverter}" />
         </controls1:CheckboxGroup.Variant>
         <controls1:CheckboxGroup.MultiselectEnabled>
-            <Binding Path="FieldType"
-                     Converter="{StaticResource AnswerFieldTypeToMultiselectEnabledConverter}" />
+          <Binding Path="FieldType"
+                   Converter="{StaticResource AnswerFieldTypeToMultiselectEnabledConverter}" />
         </controls1:CheckboxGroup.MultiselectEnabled>
-    </controls1:CheckboxGroup>
-</cells1:QuestionViewCellBase>
+      </controls1:CheckboxGroup>
+      
+    </Grid>
+    <BoxView Grid.Column="2"
+             WidthRequest="8"
+             VerticalOptions="FillAndExpand"/>
+  </Grid>
+</ViewCell>

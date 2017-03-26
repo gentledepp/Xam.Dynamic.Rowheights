@@ -1,27 +1,61 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
-<cells1:QuestionViewCellBase x:Class="Xam.Dynamic.Rowheights.Controls.Cells.QuestionImageViewCell"
+<ViewCell x:Class="Xam.Dynamic.Rowheights.Controls.Cells.QuestionImageViewCell"
                             xmlns="http://xamarin.com/schemas/2014/forms"
                             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                             xmlns:cells1="clr-namespace:Xam.Dynamic.Rowheights.Controls.Cells;assembly=Xam.Dynamic.Rowheights"
                             mc:Ignorable="d">
-    <StackLayout HorizontalOptions="FillAndExpand"
-                 VerticalOptions="StartAndExpand">
-      <StackLayout.Resources>
-        <ResourceDictionary>
-        </ResourceDictionary>
-      </StackLayout.Resources>
-      <Button Command="{Binding Children[0].EditCommand}"
-                          IsEnabled="{Binding Children[0].CanEditPicture}"
-                          Text="fa-pencil"
+ 
+  <Grid HorizontalOptions="FillAndExpand">
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="Auto" />
+      <ColumnDefinition Width="*" />
+      <ColumnDefinition Width="Auto" />
+    </Grid.ColumnDefinitions>
+    <BoxView WidthRequest="6"
+             VerticalOptions="FillAndExpand" />
+    <Grid Grid.Column="1"
+          HorizontalOptions="FillAndExpand"
+          Style="{DynamicResource ListItemRootLayoutStyle}">
+      <Grid.RowDefinitions>
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="*" />
+      </Grid.RowDefinitions>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*" />
+        <ColumnDefinition Width="Auto" />
+        <ColumnDefinition Width="Auto" />
+      </Grid.ColumnDefinitions>
+      <Label Style="{DynamicResource ListItemTextStyle}"
+             Text="{Binding Title}" />
+
+      <StackLayout HorizontalOptions="FillAndExpand"
+              VerticalOptions="StartAndExpand"
+                               Grid.Row="1"
+                              Grid.Column="0"
+                              Grid.ColumnSpan="3">
+        <StackLayout.Resources>
+          <ResourceDictionary>
+          </ResourceDictionary>
+        </StackLayout.Resources>
+        <Button Command="{Binding Children[0].EditCommand}"
+                            IsEnabled="{Binding Children[0].CanEditPicture}"
+                            Text="fa-pencil"
                           />
-      <Image Source="{Binding Children[0].PicturePath}"
-             HorizontalOptions="FillAndExpand"
-             VerticalOptions="StartAndExpand"
-             HeightRequest="300"
-             Aspect="AspectFit"/>
-      <Button Command="{Binding Children[0].ShowCommand}"
-              Text="{Binding FieldType}" />
-    </StackLayout>
-</cells1:QuestionViewCellBase>
+        <Image Source="{Binding Children[0].PicturePath}"
+               HorizontalOptions="FillAndExpand"
+               BackgroundColor="DimGray"
+               VerticalOptions="StartAndExpand"
+               HeightRequest="300"
+               Aspect="AspectFit"/>
+        <Button Command="{Binding Children[0].ShowCommand}"
+                Text="{Binding FieldType}" />
+      </StackLayout>
+      
+    </Grid>
+    <BoxView Grid.Column="2"
+             WidthRequest="8"
+             VerticalOptions="FillAndExpand"/>
+  </Grid>
+</ViewCell>

@@ -15,7 +15,7 @@
                                  HorizontalOptions="FillAndExpand"
                                  VerticalOptions="FillAndExpand"
                                  HeightRequest="60"
-                                 BackgroundColor="Gray">
+                                 BackgroundColor="LightGray">
                         <Label Margin="16,0"
                                Text="{Binding Title}"
                                HorizontalOptions="FillAndExpand"
@@ -73,7 +73,7 @@
     <ContentPage.BindingContext>
         <viewModels:MainViewModel />
     </ContentPage.BindingContext>
-    <StackLayout x:Name="Layout">
+    <StackLayout x:Name="Layout" Margin="0,50,0,0">
         
         <controls:ListViewX x:Name="ListView"
             HasUnevenRows="True"

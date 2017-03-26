@@ -11,9 +11,11 @@
         </Grid.ColumnDefinitions>
         <Label Margin="8,8,0,8"
                Text="{Binding LabelText}"
+               TextColor="Black"
                HorizontalOptions="FillAndExpand"
                FontSize="{Binding FontSize}" />
         <BoxView x:Name="IconLabel"
+                 BackgroundColor="Black"
                 Grid.Column="1"
                 Margin="0,8,8,8"
                 WidthRequest="{Binding CheckboxWidth}" />

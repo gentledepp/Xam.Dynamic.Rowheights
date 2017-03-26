@@ -5,7 +5,7 @@
           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
           xmlns:viewModels="clr-namespace:Xam.Dynamic.Rowheights.ViewModels;assembly=Xam.Dynamic.Rowheights">
-    <ViewCell.View>
+    <!--<ViewCell.View>
         <ContentView x:Name="ContentView">
 
             <ContentView.ControlTemplate>
@@ -45,5 +45,5 @@
                 </ControlTemplate>
             </ContentView.ControlTemplate>
         </ContentView>
-    </ViewCell.View>
+    </ViewCell.View>-->
 </ViewCell>
