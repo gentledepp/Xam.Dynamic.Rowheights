@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<cells1:QuestionViewCellBase x:Class="Xam.Dynamic.Rowheights.Controls.Cells.QuestionCheckboxViewCell"
+                            xmlns="http://xamarin.com/schemas/2014/forms"
+                            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                            xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                            xmlns:controls1="clr-namespace:Xam.Dynamic.Rowheights.Controls;assembly=Xam.Dynamic.Rowheights"
+                            xmlns:viewModels="clr-namespace:Xam.Dynamic.Rowheights.ViewModels;assembly=Xam.Dynamic.Rowheights"
+                            xmlns:cells1="clr-namespace:Xam.Dynamic.Rowheights.Controls.Cells;assembly=Xam.Dynamic.Rowheights"
+                            mc:Ignorable="d"> 
+    <controls1:CheckboxGroup x:Name="CheckboxGroup"
+                            Margin="16,8"
+                            ItemsSource="{Binding Children}">
+        <controls1:CheckboxGroup.Variant>
+            <Binding Path="FieldType"
+                     Converter="{StaticResource AnswerFieldTypeToCheckboxVariantConverter}" />
+        </controls1:CheckboxGroup.Variant>
+        <controls1:CheckboxGroup.MultiselectEnabled>
+            <Binding Path="FieldType"
+                     Converter="{StaticResource AnswerFieldTypeToMultiselectEnabledConverter}" />
+        </controls1:CheckboxGroup.MultiselectEnabled>
+    </controls1:CheckboxGroup>
+</cells1:QuestionViewCellBase>

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<cells1:QuestionViewCellBase x:Class="Xam.Dynamic.Rowheights.Controls.Cells.QuestionTimePickerCell"
+                            xmlns="http://xamarin.com/schemas/2014/forms"
+                            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                            xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                            xmlns:cells1="clr-namespace:Xam.Dynamic.Rowheights.Controls.Cells;assembly=Xam.Dynamic.Rowheights"
+                            xmlns:viewModels="clr-namespace:Xam.Dynamic.Rowheights.ViewModels;assembly=Xam.Dynamic.Rowheights"
+                            mc:Ignorable="d"> 
+    <TimePicker BindingContext="{Binding Children[0]}"
+                Time="{Binding TimeValue, Mode=TwoWay}"
+                HorizontalOptions="FillAndExpand" />
+</cells1:QuestionViewCellBase>

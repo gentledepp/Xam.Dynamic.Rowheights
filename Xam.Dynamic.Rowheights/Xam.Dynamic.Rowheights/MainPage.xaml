@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Xam.Dynamic.Rowheights"
+             xmlns:viewModels="clr-namespace:Xam.Dynamic.Rowheights.ViewModels;assembly=Xam.Dynamic.Rowheights"
+             xmlns:cells="clr-namespace:Xam.Dynamic.Rowheights.Controls.Cells;assembly=Xam.Dynamic.Rowheights"
+             x:Class="Xam.Dynamic.Rowheights.MainPage"
+             Title="{Binding Title}">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <DataTemplate x:Key="ExpandableSectionTemplate">
+                <ViewCell>
+                    <StackLayout Orientation="Horizontal"
+                                 HorizontalOptions="FillAndExpand"
+                                 VerticalOptions="FillAndExpand"
+                                 HeightRequest="60"
+                                 BackgroundColor="Gray">
+                        <Label Margin="16,0"
+                               Text="{Binding Title}"
+                               HorizontalOptions="FillAndExpand"
+                               VerticalOptions="Center" />
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+
+            <DataTemplate x:Key="QuestionTextTemplate">
+                <cells:QuestionTextViewCell />
+            </DataTemplate>
+
+            <DataTemplate x:Key="QuestionTextBoxTemplate">
+                <cells:QuestionMultilineTextViewCell />
+            </DataTemplate>
+
+            <DataTemplate x:Key="QuestionCheckboxTemplate">
+                <cells:QuestionCheckboxViewCell />
+            </DataTemplate>
+
+            <DataTemplate x:Key="QuestionPickerTemplate">
+                <cells:QuestionPickerViewCell />
+            </DataTemplate>
+
+            <DataTemplate x:Key="QuestionDatePickerTemplate">
+                <cells:QuestionDatePickerCell />
+            </DataTemplate>
+
+            <DataTemplate x:Key="QuestionTimePickerTemplate">
+                <cells:QuestionTimePickerCell />
+            </DataTemplate>
+
+            <DataTemplate x:Key="QuestionImageTemplate">
+                <cells:QuestionImageViewCell />
+            </DataTemplate>
+
+            <DataTemplate x:Key="QuestionEntryAndButtonTemplate">
+                <cells:QuestionEntryAndButtonViewCell ButtonText="{Binding Title}"
+                                                      ButtonCommand="{Binding Children[0].ShowCommand}" />
+            </DataTemplate>
+
+            <local:ItemTemplateSelector x:Key="ItemTemplateSelector"
+                                                 ExpandableSectionTemplate="{StaticResource ExpandableSectionTemplate}"
+                                                 QuestionTextTemplate="{StaticResource QuestionTextTemplate}"
+                                                 QuestionMultilineTextTemplate="{StaticResource QuestionTextBoxTemplate}"
+                                                 QuestionCheckboxTemplate="{StaticResource QuestionCheckboxTemplate}"
+                                                 QuestionPickerTemplate="{StaticResource QuestionPickerTemplate}"
+                                                 QuestionDatePickerTemplate="{StaticResource QuestionDatePickerTemplate}"
+                                                 QuestionTimePickerTemplate="{StaticResource QuestionTimePickerTemplate}"
+                                                 QuestionImageTemplate="{StaticResource QuestionImageTemplate}"
+                                                 QuestionEntryAndButtonTemplate="{StaticResource QuestionEntryAndButtonTemplate}"  />
+
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.BindingContext>
+        <viewModels:MainViewModel />
+    </ContentPage.BindingContext>
+    
+    <ListView 
+        HasUnevenRows="True"
+        ItemsSource="{Binding Items}"
+        ItemTemplate="{StaticResource ItemTemplateSelector}"
+        />
+
+</ContentPage>
