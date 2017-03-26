@@ -1,0 +1,3 @@
+[submodule "lib/Xamarin.Forms"]
+	path = lib/Xamarin.Forms
+	url = https://github.com/gentledepp/Xamarin.Forms.git
